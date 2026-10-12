@@ -276,6 +276,121 @@
 
   </main>
 
+  <!-- Create / Edit Target Modal -->
+  <div class="modal-overlay" id="targetModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-text">
+          <h2 class="modal-title" id="modalTitle">Set Yearly Target</h2>
+          <p class="modal-subtitle">Define what success looks like and how you'll measure it.</p>
+        </div>
+        <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="targetForm" class="modal-form">
+        <input type="hidden" id="targetId">
+
+        <!-- Title -->
+        <div class="form-group">
+          <label for="targetTitle" class="form-label required">Target Title</label>
+          <input type="text" id="targetTitle" class="form-input" placeholder="e.g., Read 24 Non-Fiction Books, Save $15,000, Run a Half Marathon" required>
+        </div>
+
+        <div class="form-row-2">
+          <!-- Category -->
+          <div class="form-group">
+            <label for="targetCategory" class="form-label required">Category</label>
+            <select id="targetCategory" class="form-select" required>
+              <option value="career">💼 Career & Work</option>
+              <option value="finance">💰 Finance & Wealth</option>
+              <option value="health">🏃 Health & Fitness</option>
+              <option value="growth">📚 Personal Growth</option>
+              <option value="relationships">👥 Relationships</option>
+              <option value="travel">✈️ Travel & Lifestyle</option>
+              <option value="creative">🎨 Creative & Hobbies</option>
+            </select>
+          </div>
+
+          <!-- Target Quarter -->
+          <div class="form-group">
+            <label for="targetQuarter" class="form-label required">Target Timeline / Quarter</label>
+            <select id="targetQuarter" class="form-select" required>
+              <option value="All Year">🗓️ Entire Year</option>
+              <option value="Q1">Q1 (Jan - Mar)</option>
+              <option value="Q2">Q2 (Apr - Jun)</option>
+              <option value="Q3">Q3 (Jul - Sep)</option>
+              <option value="Q4">Q4 (Oct - Dec)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <!-- Priority -->
+          <div class="form-group">
+            <label for="targetPriority" class="form-label required">Priority Level</label>
+            <select id="targetPriority" class="form-select" required>
+              <option value="high">🔴 High Priority (Crucial)</option>
+              <option value="medium" selected>🟡 Medium Priority (Important)</option>
+              <option value="low">🟢 Low Priority (Nice to Have)</option>
+            </select>
+          </div>
+
+          <!-- Tracking Type -->
+          <div class="form-group">
+            <label for="targetType" class="form-label required">Tracking Metric</label>
+            <select id="targetType" class="form-select" required>
+              <option value="metric">🔢 Numeric Metric (e.g. 50 books, $10k)</option>
+              <option value="milestone">📋 Sub-Milestones Checklist</option>
+              <option value="binary">🎯 Binary Outcome (Completed or Not)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Metric Details (Conditional) -->
+        <div id="metricFieldsSection" class="metric-fields-container">
+          <div class="form-row-3">
+            <div class="form-group">
+              <label for="targetCurrentValue" class="form-label">Current Progress</label>
+              <input type="number" id="targetCurrentValue" class="form-input" min="0" step="any" value="0">
+            </div>
+            <div class="form-group">
+              <label for="targetGoalValue" class="form-label">Goal Target</label>
+              <input type="number" id="targetGoalValue" class="form-input" min="1" step="any" value="10">
+            </div>
+            <div class="form-group">
+              <label for="targetUnit" class="form-label">Unit of Measure</label>
+              <input type="text" id="targetUnit" class="form-input" placeholder="e.g. books, km, $, days" value="times">
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestones Checklist Section (Conditional) -->
+        <div id="milestonesSection" class="milestones-container" style="display: none;">
+          <label class="form-label">Milestones / Steps to Success</label>
+          <div class="milestone-input-row">
+            <input type="text" id="newMilestoneInput" class="form-input" placeholder="Add a milestone step (press Enter)...">
+            <button type="button" id="addMilestoneBtn" class="action-btn secondary">Add Step</button>
+          </div>
+          <ul id="milestonesList" class="milestones-builder-list">
+            <!-- Dynamic milestones list -->
+          </ul>
+        </div>
+
+        <!-- Notes / Why this matters -->
+        <div class="form-group">
+          <label for="targetNotes" class="form-label">Motivation & Notes (Optional)</label>
+          <textarea id="targetNotes" class="form-textarea" rows="2" placeholder="Why does achieving this target matter to you? Key strategies or habits..."></textarea>
+        </div>
+
+        <!-- Modal Actions -->
+        <div class="modal-footer">
+          <button type="button" id="cancelModalBtn" class="action-btn secondary">Cancel</button>
+          <button type="submit" id="saveTargetBtn" class="action-btn primary">Save Target</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
     </main>
 </body>
 </html>
