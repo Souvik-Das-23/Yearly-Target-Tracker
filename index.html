@@ -391,6 +391,101 @@
     </div>
   </div>
 
-    </main>
+  <!-- Data Management / Backup Modal -->
+  <div class="modal-overlay" id="dataModal" role="dialog" aria-modal="true" aria-labelledby="dataModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-text">
+          <h2 class="modal-title" id="dataModalTitle">Local Storage & Backup Management</h2>
+          <p class="modal-subtitle">Your data is stored exclusively in this browser's local cache.</p>
+        </div>
+        <button class="modal-close-btn" id="closeDataModalBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="data-modal-body">
+        <div class="data-info-box">
+          <div class="data-info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4>100% Private & Serverless</h4>
+            <p>No account required, zero tracking, zero cloud leaks. Everything lives in your browser's persistent cache (localStorage).</p>
+          </div>
+        </div>
+
+        <div class="backup-actions-grid">
+          <div class="backup-tile">
+            <div class="tile-header">
+              <span class="tile-icon">📥</span>
+              <h4>Export Backup (JSON)</h4>
+            </div>
+            <p>Download a complete snapshot of all your yearly targets to keep safely on your computer.</p>
+            <button id="exportJsonBtn" class="action-btn secondary full-width">Download Backup File</button>
+          </div>
+
+          <div class="backup-tile">
+            <div class="tile-header">
+              <span class="tile-icon">📤</span>
+              <h4>Restore from Backup</h4>
+            </div>
+            <p>Import a previously saved Aegis JSON backup file to restore your targets.</p>
+            <input type="file" id="importJsonInput" accept=".json" style="display: none;">
+            <button id="importJsonBtn" class="action-btn secondary full-width">Upload JSON Backup</button>
+          </div>
+
+          <div class="backup-tile">
+            <div class="tile-header">
+              <span class="tile-icon">🖨️</span>
+              <h4>Print / PDF Summary</h4>
+            </div>
+            <p>Generate a clean, printable overview report of your yearly targets to stick on your wall.</p>
+            <button id="printReportBtn" class="action-btn secondary full-width">Print Year Report</button>
+          </div>
+
+          <div class="backup-tile danger-tile">
+            <div class="tile-header">
+              <span class="tile-icon">🗑️</span>
+              <h4>Reset Data</h4>
+            </div>
+            <p>Clear all targets for the currently selected year or wipe all stored tracker data completely.</p>
+            <button id="resetYearBtn" class="action-btn danger full-width">Clear Current Year</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone Quick-Check Modal / Note Log Modal -->
+  <div class="modal-overlay" id="targetDetailModal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-header-text">
+          <span class="badge" id="detailCategoryBadge">Category</span>
+          <h2 class="modal-title" id="detailTargetTitle">Target Title</h2>
+        </div>
+        <button class="modal-close-btn" id="closeDetailModalBtn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-detail-body" id="detailModalBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Button for Mobile Devices -->
+  <button id="mobileFabBtn" class="mobile-fab" title="Add New Target" aria-label="Add New Target">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+  <!-- Application Scripts -->
+  <script src="js/confetti.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
