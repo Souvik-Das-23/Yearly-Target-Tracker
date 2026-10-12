@@ -52,8 +52,140 @@
         </button>
       </div>
 
-            </div>
+      <!-- Header Action Buttons -->
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="action-btn icon-only" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+
+        <button id="dataMenuBtn" class="action-btn secondary" title="Backup & Data Options">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Data Backup</span>
+        </button>
+
+        <button id="newTargetBtn" class="action-btn primary" title="Add a New Target">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>New Target</span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Main Container -->
+  <main class="container main-content">
+    
+    <!-- Hero / Annual Pacing & Progress Dashboard -->
+    <section class="dashboard-hero" id="dashboardHero">
+      <!-- Overall Progress Card -->
+      <div class="hero-card progress-summary-card">
+        <div class="card-header-clean">
+          <div>
+            <span class="eyebrow" id="heroYearLabel">YEAR 2026 PROGRESS</span>
+            <h2 class="card-title">Yearly Target Score</h2>
+          </div>
+          <span class="badge" id="completionRateBadge">0% Complete</span>
+        </div>
+
+        <div class="progress-stats-grid">
+          <div class="progress-radial-container">
+            <svg class="radial-progress-svg" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#f59e0b" />
+                  <stop offset="35%" stop-color="#fbbf24" />
+                  <stop offset="70%" stop-color="#d97706" />
+                  <stop offset="100%" stop-color="#b45309" />
+                </linearGradient>
+                <linearGradient id="goldSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#fef3c7" />
+                  <stop offset="100%" stop-color="#f59e0b" />
+                </linearGradient>
+              </defs>
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" id="mainRadialBar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-content">
+              <span class="radial-value" id="mainScorePercent">0%</span>
+              <span class="radial-label">Achieved</span>
+            </div>
+          </div>
+
+          <div class="stat-pills">
+            <div class="stat-item">
+              <span class="stat-num" id="totalTargetsCount">0</span>
+              <span class="stat-name">Total Targets</span>
+            </div>
+            <div class="stat-item completed">
+              <span class="stat-num" id="completedTargetsCount">0</span>
+              <span class="stat-name">Achieved</span>
+            </div>
+            <div class="stat-item in-progress">
+              <span class="stat-num" id="inProgressTargetsCount">0</span>
+              <span class="stat-name">In Progress</span>
+            </div>
+            <div class="stat-item not-started">
+              <span class="stat-num" id="notStartedTargetsCount">0</span>
+              <span class="stat-name">Not Started</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Year Timeline Pacing Bar -->
+        <div class="year-pacing-section">
+          <div class="pacing-header">
+            <span class="pacing-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Time Elapsed in Year (<span id="pacingDaysRemaining">--</span> days left)
+            </span>
+            <span class="pacing-status-indicator" id="pacingPaceIndicator">On Track</span>
+          </div>
+          <div class="pacing-progress-bar-bg">
+            <div class="pacing-progress-bar-fill" id="yearTimeElapsedBar" style="width: 0%;"></div>
+            <div class="pacing-target-marker" id="targetScoreMarker" title="Your Target Progress" style="left: 0%;"></div>
+          </div>
+          <div class="pacing-footer">
+            <span id="yearElapsedText">0% of year passed</span>
+            <span id="pacingDeltaText">Matching pace</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Distribution & Quarterly Insights -->
+      <div class="hero-card category-breakdown-card">
+        <div class="card-header-clean">
+          <div>
+            <span class="eyebrow">AREAS OF FOCUS</span>
+            <h2 class="card-title">Category Progress</h2>
+          </div>
+          <button id="quickSampleBtn" class="link-btn" title="Add preset realistic targets for testing">Load Example Data</button>
+        </div>
+
+        <div class="category-bars-container" id="categoryBarsContainer">
+          <!-- Filled dynamically by JS -->
+        </div>
+
+        <div class="quarterly-mini-pills" id="quarterlySummaryRow">
+          <div class="q-pill" data-quarter="Q1">
+            <span class="q-name">Q1 (Jan-Mar)</span>
+            <span class="q-val" id="q1Stat">0/0</span>
+          </div>
+          <div class="q-pill" data-quarter="Q2">
+            <span class="q-name">Q2 (Apr-Jun)</span>
+            <span class="q-val" id="q2Stat">0/0</span>
+          </div>
+          <div class="q-pill" data-quarter="Q3">
+            <span class="q-name">Q3 (Jul-Sep)</span>
+            <span class="q-val" id="q3Stat">0/0</span>
+          </div>
+          <div class="q-pill" data-quarter="Q4">
+            <span class="q-name">Q4 (Oct-Dec)</span>
+            <span class="q-val" id="q4Stat">0/0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      </main>
 </body>
 </html>
