@@ -1890,3 +1890,197 @@ body {
   z-index: 999;
 }
 
+/* --------------------------------------------------------------------------
+   11. Comprehensive Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Smaller Desktop (max-width: 992px) */
+@media (max-width: 992px) {
+  .dashboard-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .header-container {
+    flex-wrap: wrap;
+  }
+
+  .search-and-quarters {
+    width: 100%;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+/* Mobile & Phablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.75rem 0;
+  }
+
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 
+      "brand actions"
+      "year year";
+    row-gap: 0.75rem;
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .header-actions {
+    grid-area: actions;
+  }
+
+  .year-controls {
+    grid-area: year;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Hide textual 'New Target' button in header, reveal Mobile FAB */
+  #newTargetBtn {
+    display: none;
+  }
+
+  .mobile-fab {
+    display: flex;
+  }
+
+  /* Compress Backup Button Text */
+  #dataMenuBtn span {
+    display: none;
+  }
+  #dataMenuBtn {
+    padding: 0.55rem;
+  }
+
+  /* Toolbar */
+  .toolbar-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .search-and-quarters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pill-tabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter-dropdowns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .custom-select {
+    width: 100%;
+    padding: 0.55rem 0.5rem;
+    font-size: 0.78rem;
+  }
+
+  /* Row Item in List View */
+  .target-row-item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Modals */
+  .form-row-2, .form-row-3, .backup-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Quarterly Mini Pills */
+  .quarterly-mini-pills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Extra Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  .filter-dropdowns {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .view-mode-toggle {
+    grid-column: span 2;
+    justify-content: center;
+  }
+
+  .progress-stats-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-pills {
+    width: 100%;
+  }
+
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal-dialog {
+    max-height: 94vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-form, .data-modal-body, .modal-detail-body {
+    padding: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Print Stylesheet (Archival Ledger Print)
+   -------------------------------------------------------------------------- */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .bg-glow, .app-header, .toolbar-section, .modal-overlay, .toast-container, 
+  .card-actions-menu, .numeric-steppers, .link-btn, .mobile-fab {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .hero-card, .target-card {
+    background: #ffffff !important;
+    border: 1px solid #777777 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    color: #000000 !important;
+  }
+
+  .card-progress-fill {
+    background: #333333 !important;
+  }
+
+  .targets-container.view-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
